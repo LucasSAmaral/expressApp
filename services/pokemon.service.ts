@@ -9,7 +9,7 @@ export const getPokemonByLimit = async (req: Request, res: Response) => {
   try {
     const results = await getPokemonListByLimit(limit);
 
-    res.send(JSON.stringify(results));
+    res.json(results);
   } catch (error) {
     console.log('ERROR', error);
     res.send(error);
@@ -29,5 +29,5 @@ export const addPokemon = (req: Request, res: Response) => {
 
   pokemonList.push({ name });
 
-  res.send(JSON.stringify(pokemonList));
+  res.json(pokemonList);
 };
