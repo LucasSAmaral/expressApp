@@ -24,7 +24,7 @@ export const addPokemon = (req: Request, res: Response) => {
   } = req;
 
   if (!name) {
-    throw res.send(JSON.stringify({ status: 400, message: 'nome em branco' }));
+    throw res.status(400).send('nome em branco');
   }
 
   pokemonList.push({ name });
