@@ -15,3 +15,15 @@ export const getPokemonByLimit = async (req: Request, res: Response) => {
     res.send(error);
   }
 };
+
+const pokemonList: { name: string }[] = [];
+
+export const addPokemon = (req: Request, res: Response) => {
+  const {
+    body: { name },
+  } = req;
+
+  pokemonList.push({ name });
+
+  res.send(JSON.stringify(pokemonList));
+};
