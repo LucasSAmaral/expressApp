@@ -1,5 +1,5 @@
-import { Request, Response } from "express";
-import { getPokemonListByLimit } from "../repository/pokemon.repository";
+import { Request, Response } from 'express';
+import { getPokemonListByLimit } from '../repository/pokemon.repository';
 
 export const getPokemonByLimit = async (req: Request, res: Response) => {
   const {
@@ -11,7 +11,7 @@ export const getPokemonByLimit = async (req: Request, res: Response) => {
 
     res.send(JSON.stringify(results));
   } catch (error) {
-    console.log("ERROR", error);
+    console.log('ERROR', error);
     res.send(error);
   }
 };
@@ -22,6 +22,10 @@ export const addPokemon = (req: Request, res: Response) => {
   const {
     body: { name },
   } = req;
+
+  if (!name) {
+    throw res.send(JSON.stringify({ status: 400, message: 'nome em branco' }));
+  }
 
   pokemonList.push({ name });
 
