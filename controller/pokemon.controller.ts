@@ -12,7 +12,7 @@ export const getPokemonByLimit = async (req: Request, res: Response) => {
     res.json(results);
   } catch (error) {
     console.log('ERROR', error);
-    res.send(error);
+    res.json(error);
   }
 };
 
